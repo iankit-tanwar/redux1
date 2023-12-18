@@ -1,9 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { useContext } from 'react';
+import { storeData } from '.';
+
+
 
 function App() {
+
+  let state = useContext(storeData);
+  console.log(state)
+  state.subscribe(()=>{console.log(state.getState())})
+  state.dispatch({ type: 'good morning', data: 'munna' })
   return (
     <div className="App">
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
